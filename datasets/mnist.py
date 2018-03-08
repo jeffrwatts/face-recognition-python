@@ -31,7 +31,7 @@ slim = tf.contrib.slim
 
 _FILE_PATTERN = 'mnist_%s.tfrecord'
 
-_SPLITS_TO_SIZES = {'train': 60000, 'validation': 10000}
+_SPLITS_TO_SIZES = {'train': 35700, 'validation': 6300}
 
 _NUM_CLASSES = 10
 
@@ -71,7 +71,7 @@ def get_split(split_name, dataset_dir, file_pattern=None, reader=None):
 
   keys_to_features = {
       'image/encoded': tf.FixedLenFeature((), tf.string, default_value=''),
-      'image/format': tf.FixedLenFeature((), tf.string, default_value='raw'),
+      'image/format': tf.FixedLenFeature((), tf.string, default_value='jpg'),
       'image/class/label': tf.FixedLenFeature(
           [1], tf.int64, default_value=tf.zeros([1], dtype=tf.int64)),
   }
